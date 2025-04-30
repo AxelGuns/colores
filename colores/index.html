@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Interactivo de Preferencias de Color</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Panel Interactivo de Preferencias de Color</h1>
+      <p class="subtitle">Análisis de resultados de encuesta por rangos de edad</p>
+    </header>
+
+    <section class="controls">
+      <div class="filter-group">
+        <label for="ageFilter"><i class="fas fa-users"></i> Filtrar por rango de edad:</label>
+        <select id="ageFilter" multiple>
+          <option value="all">Todas las edades</option>
+          <option value="18-25">18-25 años</option>
+          <option value="26-35">26-35 años</option>
+          <option value="36-45">36-45 años</option>
+          <option value="46+">46+ años</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Tipo de visualización:</label>
+        <div class="btn-group">
+          <button id="btnBar" class="active"><i class="fas fa-chart-bar"></i> Gráfico de Barras</button>
+          <button id="btnPie"><i class="fas fa-chart-pie"></i> Gráfico de Pastel</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="checkbox-group">
+          <input type="checkbox" id="incluirNulos" checked />
+          <label for="incluirNulos"><i class="fas fa-filter"></i> Incluir encuestados sin edad especificada</label>
+        </div>
+      </div>
+    </section>
+
+    <div class="charts-container">
+      <div class="chart-card">
+        <h2 class="chart-title">Preferencias de Color General</h2>
+        <canvas id="mainChart"></canvas>
+      </div>
+
+      <div class="chart-card" id="detailChartCard">
+        <h2 class="chart-title" id="detailTitle">Detalle por Rango de Edad</h2>
+        <canvas id="detailChart"></canvas>
+      </div>
+    </div>
+
+    <footer>
+      Examen Práctico IHC
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
